@@ -1,3 +1,3 @@
 public enum Ciudades {
-    Cali, Buga, Tulua, Ginebra, Palmira, Roldanillo
+    CALI, BUGA, TULUA, GINEBRA, PALMIRA, ROLDANILLO
 }

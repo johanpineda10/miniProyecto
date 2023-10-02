@@ -1,13 +1,23 @@
+import java.util.List;
+
 public class Candidato extends Ciudadano{
     private int tendencia;
     private Partido partido;
-    private String promesas;
+    private List<String> promesas;
 
     public Candidato(String nombre, String cedula, Ciudades ciudadOri, int tendencia, Partido partido,
-        String promesas) {
+        List<String> promesas) {
         super(nombre, cedula, ciudadOri);
         this.tendencia = tendencia;
         this.partido = partido;
+        this.promesas = promesas;
+    }
+
+    public List<String> getPromesas() {
+        return promesas;
+    }
+
+    public void setPromesas(List<String> promesas) {
         this.promesas = promesas;
     }
 
@@ -27,14 +37,6 @@ public class Candidato extends Ciudadano{
         this.partido = partido;
     }
 
-    public String getPromesas() {
-        return promesas;
-    }
-
-    public void setPromesas(String promesas) {
-        this.promesas = promesas;
-    }
-    
     
     
 }
