@@ -18,6 +18,7 @@ public class Candidato extends Ciudadano{
     }
 
     public void setPromesas(List<String> promesas) {
+        System.out.println("Ingrese sus promesas: ");
         this.promesas = promesas;
     }
 
@@ -26,6 +27,7 @@ public class Candidato extends Ciudadano{
     }
 
     public void setTendencia(int tendencia) {
+        System.out.println("Ingrese su tendencia politica: 1. Derecha, 2. Izquierda");
         this.tendencia = tendencia;
     }
 
@@ -34,6 +36,7 @@ public class Candidato extends Ciudadano{
     }
 
     public void setPartido(Partido partido) {
+        System.out.println("Ingrese su partido politico: ");
         this.partido = partido;
     }
 
