@@ -14,7 +14,6 @@ public class Ciudadano {
     }
 
     public void setNombre(String nombre) {
-        System.out.println("Ingrese su nombre: ");
         this.nombre = nombre;
     }
 
@@ -23,7 +22,6 @@ public class Ciudadano {
     }
 
     public void setCedula(String cedula) {
-        System.out.println("Ingrese su numero de cedula");
         this.cedula = cedula;
     }
 
@@ -32,7 +30,6 @@ public class Ciudadano {
     }
 
     public void setCiudadOri(Ciudades ciudadOri) {
-        System.out.println("Ingrese su ciudad de origen");
         this.ciudadOri = ciudadOri;
     }
 

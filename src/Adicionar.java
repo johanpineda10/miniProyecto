@@ -4,29 +4,43 @@ import java.util.Scanner;
 public class Adicionar {
 
     Scanner sc = new Scanner(System.in);
-    String nombre, cedula;
+    String nombre = "";
+    String cedula = "";
     Ciudades ciudad;
-    int tendencia;
+    String ciudadOri;
+    int ideologia=0;
     Partido partido;
     List<String> promesa;
 
 
-    public Adicionar(String nombre, String cedula, Ciudades ciudad, int tendencia, Partido partido,
-            List<String> promesa) {
-        this.nombre = nombre;
-        this.cedula = cedula;
-        this.ciudad = ciudad;
-        this.tendencia = tendencia;
-        this.partido = partido;
-        this.promesa = promesa;
-
-        Candidato candi = new Candidato(nombre, cedula, ciudad, tendencia, partido, promesa);
+    public Adicionar() {
+        Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partido, promesa);
         
+        System.out.println("Ingrese su nombre completo: ");
+        nombre = sc.nextLine();
         candi.setNombre(nombre);
+
+        System.out.println("Ingrese su numero de cedula: ");
+        cedula = sc.nextLine();
         candi.setCedula(cedula);
+
+        System.out.println("Ingrese su ciudad de origen: ");
+        ciudadOri = sc.nextLine();
+        ciudad = Ciudades.valueOf(ciudadOri.toUpperCase());
         candi.setCiudadOri(ciudad);
-        candi.setTendencia(tendencia);
+
+        System.out.println("Ingrese su Ideologia politica: 1. Derecha o 2. Izquierda");
+        ideologia = sc.nextInt();
+        candi.setIdeologia(ideologia);
+
+
         candi.setPartido(partido);
+
+        System.out.println(candi.getNombre());
+        System.out.println(candi.getCedula());
+        System.out.println(candi.getCiudadOri());
+        System.out.println(candi.getIdeologia());
+
     }
 
     
