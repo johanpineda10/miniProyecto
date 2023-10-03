@@ -4,13 +4,16 @@ import java.util.Scanner;
 public class Adicionar {
 
     Scanner sc = new Scanner(System.in);
-    String nombre = "";
-    String cedula = "";
-    Ciudades ciudad;
-    String ciudadOri;
-    int ideologia=0;
-    Partido partido;
-    List<String> promesa;
+    private String nombre = "";
+    private String cedula = "";
+    private Ciudades ciudad;
+    private String ciudadOri;
+    private int ideologia=0;
+    private Partido partido;
+    private String partidoPoli;
+    private List<String> promesa;
+    private String[] guardar = new String[10];
+
 
 
     public Adicionar() {
@@ -33,13 +36,20 @@ public class Adicionar {
         ideologia = sc.nextInt();
         candi.setIdeologia(ideologia);
 
-
+        System.out.println("Ingrese su partido politico: ");
+        partidoPoli = sc.nextLine();
+        partido = Partido.valueOf(partidoPoli.toUpperCase());
         candi.setPartido(partido);
 
-        System.out.println(candi.getNombre());
+        for(int i = 0; i <= guardar.length; i++){
+            guardar[i] = candi.getNombre()+""+candi.getCedula();
+            System.out.println(guardar[i]);
+        }
+        
+        /*System.out.println(candi.getNombre());
         System.out.println(candi.getCedula());
         System.out.println(candi.getCiudadOri());
-        System.out.println(candi.getIdeologia());
+        System.out.println(candi.getIdeologia());*/
 
     }
 
