@@ -25,8 +25,8 @@ public class Candidato extends Ciudadano{
         return partidos;
     }
 
-    public void setPartido(PartidoPoli partido) {
-        this.partidos = partido;
+    public void setPartido(PartidoPoli partidos) {
+        this.partidos = partidos;
     }
 
     public List<String> getPromesas() {
