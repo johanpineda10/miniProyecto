@@ -9,7 +9,7 @@ public class Adicionar {
     private Ciudades ciudad;
     private String ciudadOri;
     private int ideologia=0;
-    private Partido partido;
+    private PartidoPoli partidos;
     private String partidoPoli;
     private List<String> promesa;
     private String[] guardar = new String[10];
@@ -17,7 +17,7 @@ public class Adicionar {
 
 
     public Adicionar() {
-        Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partido, promesa);
+        Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
         
         System.out.println("Ingrese su nombre completo: ");
         nombre = sc.nextLine();
@@ -38,18 +38,18 @@ public class Adicionar {
 
         System.out.println("Ingrese su partido politico: ");
         partidoPoli = sc.nextLine();
-        partido = Partido.valueOf(partidoPoli.toUpperCase());
-        candi.setPartido(partido);
+        partidos = PartidoPoli.valueOf(partidoPoli.toUpperCase().trim());
+        candi.setPartido(partidos);
 
-        for(int i = 0; i <= guardar.length; i++){
-            guardar[i] = candi.getNombre()+""+candi.getCedula();
+        /*for(int i = 0; i <= guardar.length; i++){
+            guardar[i] = candi.getNombre()+" "+candi.getCedula();
             System.out.println(guardar[i]);
-        }
+        }*/
         
-        /*System.out.println(candi.getNombre());
+        System.out.println(candi.getNombre());
         System.out.println(candi.getCedula());
         System.out.println(candi.getCiudadOri());
-        System.out.println(candi.getIdeologia());*/
+        System.out.println(candi.getIdeologia());
 
     }
 
