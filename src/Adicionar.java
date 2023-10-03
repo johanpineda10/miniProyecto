@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,8 +11,10 @@ public class Adicionar {
     private String ciudadOri;
     private int ideologia=0;
     private PartidoPoli partidos;
-    private List<String> promesa;
+    private List<String> promesa = new ArrayList<>();
     private String nombrePar;
+    private int opc=0;
+    private String propu;
 
     String candidato[][];
     public Adicionar(String candidato[][], int fila) {
@@ -44,15 +47,23 @@ public class Adicionar {
             candi.setIdeologia(ideologia);
             candidato[fila][4] = ""+candi.getIdeologia();
 
+            do{
+                System.out.println("1. Agregar propuesta");
+                System.out.println("0. Salir");
+                opc = sc.nextInt();
+                sc.nextLine(); //Se agrega para consumir una nueva linea y pueda tomar la siguiente
+                if(opc ==1){
+                    System.out.println("Ingrese su propuesta: ");
+                    propu = sc.nextLine();
+                    promesa.add(propu);
+                    candi.setPromesas(promesa);
+                }
 
+            }while(opc!=0);
+            candidato[fila][5] = ""+candi.getPromesas();
+
+            System.out.println(candi.getPromesas());
             this.candidato = candidato;
-
-        
-        System.out.println(candi.getNombre());
-        System.out.println(candi.getCedula());
-        System.out.println(candi.getCiudadOri());
-        System.out.println(candi.getIdeologia());
-        System.out.println(candi.getPartido());
     }
 
     
