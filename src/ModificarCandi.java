@@ -12,6 +12,8 @@ public class ModificarCandi {
     private List<String> promesa;
     private String nombrePar;
     String candidato[][];
+    private int opc=0;
+    private String propu;
 
     public ModificarCandi(String candidato[][], int fila){
         Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
@@ -40,6 +42,23 @@ public class ModificarCandi {
                 ideologia = sc.nextInt();
                 candi.setIdeologia(ideologia);
                 candidato[i][4] = ""+candi.getIdeologia();
+
+                do{
+                    System.out.println("1. Agregar propuesta");
+                    System.out.println("0. Salir");
+                    opc = sc.nextInt();
+                    sc.nextLine(); //Se agrega para consumir una nueva linea y pueda tomar la siguiente
+                    if(opc ==1){
+                        System.out.println("Ingrese su propuesta: ");
+                        propu = sc.nextLine();
+                        
+                        promesa.add(propu);
+                        candi.setPromesas(promesa);
+                        
+                    }
+    
+                }while(opc!=0);
+                candidato[i][5] = ""+candi.getPromesas();
             }else{
                 System.out.println("Usuario no encontrado");
             }

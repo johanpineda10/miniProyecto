@@ -18,6 +18,7 @@ public class Adicionar {
 
     String candidato[][];
     public Adicionar(String candidato[][], int fila) {
+        System.out.println(fila);
         Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
         
             System.out.println("Ingrese su nombre completo: ");

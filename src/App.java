@@ -25,7 +25,9 @@ public class App {
                 case 2: ModificarCandi mod = new ModificarCandi(cand, fila);
                         cand = mod.candidato;
                     break;
-                case 3: 
+                case 3: EliminarCandi eli = new EliminarCandi(cand, fila);
+                        cand = eli.candidato;
+                        fila--;
                     break;
                 case 4: new ListarCandi(cand, fila);
                     break;
