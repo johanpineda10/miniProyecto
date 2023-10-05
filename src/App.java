@@ -5,7 +5,7 @@ public class App {
     Scanner sc = new Scanner(System.in);
     public App(){
 
-        String cand[][] = new String[10][10];
+        String cand[][] = new String[20][6];
         int fila = 0;
         int opc=0;
 
@@ -15,6 +15,7 @@ public class App {
             System.out.println("3. Eliminar candidato");
             System.out.println("4. Listar candidato por nombre");
             System.out.println("5. Listar todos los candidatos");
+            System.out.println("0. Salir");
 
             System.out.print("Ingrese la opcion: ");
             opc=sc.nextInt();
@@ -33,6 +34,8 @@ public class App {
                 case 4: new ListarNom(cand, fila);
                     break;
                 case 5: new ListarCandi(cand, fila);
+                    break;
+                case 0: new Votos();
                     break;
             }
         }while(opc != 0);
