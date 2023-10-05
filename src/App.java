@@ -13,7 +13,8 @@ public class App {
             System.out.println("1. Adicionar Candidato");
             System.out.println("2. Modificar candidato");
             System.out.println("3. Eliminar candidato");
-            System.out.println("4. Listar candidatos");
+            System.out.println("4. Listar candidato por nombre");
+            System.out.println("5. Listar todos los candidatos");
 
             System.out.print("Ingrese la opcion: ");
             opc=sc.nextInt();
@@ -29,7 +30,9 @@ public class App {
                         cand = eli.candi;
                         fila--;
                     break;
-                case 4: new ListarCandi(cand, fila);
+                case 4: new ListarNom(cand, fila);
+                    break;
+                case 5: new ListarCandi(cand, fila);
                     break;
             }
         }while(opc != 0);
