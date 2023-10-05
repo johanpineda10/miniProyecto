@@ -26,7 +26,7 @@ public class App {
                         cand = mod.candidato;
                     break;
                 case 3: EliminarCandi eli = new EliminarCandi(cand, fila);
-                        cand = eli.candidato;
+                        cand = eli.candi;
                         fila--;
                     break;
                 case 4: new ListarCandi(cand, fila);

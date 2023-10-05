@@ -1,25 +1,27 @@
 import java.util.Scanner;
 
 public class EliminarCandi {
-    String cedula = "";
-    String candidato[][];
-    int fila;
+    Scanner sc = new Scanner(System.in);
+    String candi[][];
+    int fila = 0;
     public EliminarCandi(String candidato[][], int fila){
-        Scanner sc = new Scanner(System.in);
+        System.out.println("Eliminar candidato");
 
-        System.out.println("Digite la cedula del candidato a eliminar: ");
-        cedula = sc.nextLine();
+        System.out.println("Ingrese la cedula del candidato: ");
+        int ced = sc.nextInt();
 
-        for(int i =0; i < fila; i++){
-            if(candidato[i][0].equals(cedula)){
-                candidato[i] = null;
-                System.out.println("Candidato eliminado con exito");
-            }else{
-                System.out.println("Usuario no encontrado");
+        if(ced>=1 && ced<=fila){
+            for(int i = ced - 1; i<fila - 1; i++){
+                for(int j =0; j<6; j++){
+                    candidato[i][j] = candidato[i+1][j];
+                }
             }
-        
+            fila--;
+            System.out.println("Candidato eliminado");
+        }else{
+            System.out.println("Numero de cedula no encontrado");
         }
-        this.candidato = candidato;
-
+        this.candi = candidato;
+        this.fila = fila;
     }
 }
