@@ -5,7 +5,7 @@ public class App {
     Scanner sc = new Scanner(System.in);
     public App(){
 
-        String cand[][] = new String[20][6];
+        String cand[][] = new String[20][7];
         int fila = 0;
         int opc=0;
 
@@ -35,7 +35,9 @@ public class App {
                     break;
                 case 5: new ListarCandi(cand, fila);
                     break;
-                case 0: new Votos();
+                case 0: Votos v = new Votos(cand, fila);
+                        cand = v.candi;
+                        
                     break;
             }
         }while(opc != 0);
