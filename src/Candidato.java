@@ -1,12 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Candidato extends Ciudadano{
     private int ideologia;
     private PartidoPoli partidos;
-    private List<String> promesas;
+    private ArrayList<String> promesas;
 
     public Candidato(String nombre, String cedula, Ciudades ciudadOri, int ideologia, PartidoPoli partidos,
-        List<String> promesas) {
+        ArrayList<String> promesas) {
         super(nombre, cedula, ciudadOri);
         this.ideologia = ideologia;
         this.partidos = partidos;
@@ -28,14 +29,16 @@ public class Candidato extends Ciudadano{
     public void setPartido(PartidoPoli partidos) {
         this.partidos = partidos;
     }
-
-    public List<String> getPromesas() {
+    
+    public ArrayList<String> getPromesas() {
         return promesas;
     }
 
-    public void setPromesas(List<String> promesas) {
+    public void setPromesas(ArrayList<String> promesas) {
         this.promesas = promesas;
     }
+
+   
 
     
 

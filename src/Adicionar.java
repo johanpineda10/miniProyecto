@@ -11,14 +11,15 @@ public class Adicionar {
     private String ciudadOri;
     private int ideologia=0;
     private PartidoPoli partidos;
-    private List<String> promesa = new ArrayList<>();
+    ArrayList<String> promesa;
     private String nombrePar;
     private int opc=0;
     private String propu;
 
     String candidato[][];
-    public Adicionar(String candidato[][], int fila) {
-        System.out.println(fila);
+
+    public Adicionar(String candidato[][], int fila, ArrayList<String> prome) {
+        
         Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
         
             System.out.println("Ingrese su nombre completo: ");
@@ -56,15 +57,21 @@ public class Adicionar {
                 if(opc ==1){
                     System.out.println("Ingrese su propuesta: ");
                     propu = sc.nextLine();
-                    promesa.add(propu);
-                    candi.setPromesas(promesa);
+                    prome.add(propu);
+                    candi.setPromesas(prome);
                 }
 
             }while(opc!=0);
             candidato[fila][5] = ""+candi.getPromesas();
+            int contador=0;
+            /*for(String pro: promesa){
+                System.out.println(contador+". "+ pro);
+                contador++;
+            }*/
 
-            System.out.println(candi.getPromesas());
+            //System.out.println(candi.getPromesas());
             this.candidato = candidato;
+            this.promesa = prome;
     }
 
     

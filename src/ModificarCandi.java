@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,13 +11,13 @@ public class ModificarCandi {
     private String ciudadOri;
     private int ideologia=0;
     private PartidoPoli partidos;
-    private List<String> promesa;
     private String nombrePar;
     String candidato[][];
     private int opc=0;
     private String propu;
+    ArrayList<String> promesa;
 
-    public ModificarCandi(String candidato[][], int fila){
+    public ModificarCandi(String candidato[][], int fila, ArrayList<String> prome){
         Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
         System.out.println("Digite la cedula del candidato: ");
         String cedula = sc.nextLine();
@@ -44,26 +46,32 @@ public class ModificarCandi {
                 candidato[i][4] = ""+candi.getIdeologia();
 
                 do{
-                    System.out.println("1. Agregar propuesta");
+                    int cont =1;
+                    System.out.println("Propuestas del candidato");
+                    for(String p : prome){
+                        System.out.println(cont + ". " + p);
+                        cont++;
+                    }
+                    System.out.println("1. Numero de propuesta a modificar");
                     System.out.println("0. Salir");
                     opc = sc.nextInt();
                     sc.nextLine(); //Se agrega para consumir una nueva linea y pueda tomar la siguiente
                     if(opc ==1){
-                        System.out.println("Ingrese su propuesta: ");
+                        System.out.println("Ingrese su propuesta nueva: ");
                         propu = sc.nextLine();
                         
-                        promesa.add(propu);
-                        candi.setPromesas(promesa);
+                        prome.set(opc, propu);
+                        candi.setPromesas(prome);
                         
                     }
-    
                 }while(opc!=0);
-                candidato[i][5] = ""+candi.getPromesas();
+                //candidato[i][5] = ""+candi.getPromesas();
             }else{
                 System.out.println("Usuario no encontrado");
             }
         }
         this.candidato = candidato;
+        this.promesa = prome;
 
     }
 }

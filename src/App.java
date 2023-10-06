@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -8,6 +9,7 @@ public class App {
         String cand[][] = new String[20][7];
         int fila = 0;
         int opc=0;
+        ArrayList<String> prome = new ArrayList<>();
 
         do{
             System.out.println("1. Adicionar Candidato");
@@ -20,12 +22,19 @@ public class App {
             System.out.print("Ingrese la opcion: ");
             opc=sc.nextInt();
             switch(opc){
-                case 1: Adicionar adi = new Adicionar(cand, fila);
+                case 1: Adicionar adi = new Adicionar(cand, fila, prome);
                         cand = adi.candidato;
+                        prome = adi.promesa;
                         fila++;
+                        
+                        System.out.println("Esta es la fila: "+fila);
                     break;
-                case 2: ModificarCandi mod = new ModificarCandi(cand, fila);
+                case 2: ModificarCandi mod = new ModificarCandi(cand, fila, prome);
                         cand = mod.candidato;
+                        prome = mod.promesa;
+                        for(String p : prome){
+                            System.out.println(p);
+                        }
                     break;
                 case 3: EliminarCandi eli = new EliminarCandi(cand, fila);
                         cand = eli.candi;
@@ -36,8 +45,7 @@ public class App {
                 case 5: new ListarCandi(cand, fila);
                     break;
                 case 0: Votos v = new Votos(cand, fila);
-                        cand = v.candi;
-                        
+                        cand = v.candi; 
                     break;
             }
         }while(opc != 0);
