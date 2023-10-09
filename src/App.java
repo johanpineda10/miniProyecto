@@ -40,7 +40,7 @@ public class App {
                         cand = eli.candi;
                         fila--;
                     break;
-                case 4: new ListarNom(cand, fila);
+                case 4: new ListarNom(cand, fila, prome);
                     break;
                 case 5: new ListarCandi(cand, fila);
                     break;

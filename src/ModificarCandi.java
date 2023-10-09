@@ -44,14 +44,18 @@ public class ModificarCandi {
                 ideologia = sc.nextInt();
                 candi.setIdeologia(ideologia);
                 candidato[i][4] = ""+candi.getIdeologia();
-
+                System.out.println(prome.get(i));
                 do{
                     int cont =1;
                     System.out.println("Propuestas del candidato");
+                    
                     for(String p : prome){
                         System.out.println(cont + ". " + p);
                         cont++;
+                        
                     }
+                    System.out.println("////////////////////");
+                    System.out.println(candidato[i][5]);
                     System.out.println("1. Numero de propuesta a modificar");
                     System.out.println("0. Salir");
                     opc = sc.nextInt();
