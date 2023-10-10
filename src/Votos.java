@@ -11,7 +11,7 @@ public class Votos {
             System.out.println("1. Ingresar cantidad de votos");
             System.out.println("2. Mostrar resultados");
             System.out.println("3. Conteo final");
-            System.out.println("3. Salir");
+            System.out.println("0. Salir");
             opc = sc.nextInt();
             sc.nextLine();
             if(opc == 1){
@@ -21,11 +21,12 @@ public class Votos {
 
                 for(int i = 0; i < fila; i++){
                     if(candi[i][0].equals(ced)){
+                        canEncontrado = true;
                         System.out.println("Ingrese la cantidad de votos para el candidato "+candi[i][1]);
                         int numVoto = sc.nextInt();
                         candi[i][6] = Integer.toString(numVoto);
                         System.out.println("Cantidad de votos para el candidato "+ candi[i][1]+ " es igual a "+candi[i][6]);
-                        canEncontrado = true;
+                        
                         break;
                     }
                     if(!canEncontrado){
@@ -48,6 +49,7 @@ public class Votos {
                     int numVotos = Integer.parseInt(candi[f][6]);
                     if(numVotos>max){
                         max = numVotos;
+                        System.out.println(f);
                         ganador=f;
                         
                     }

@@ -21,8 +21,11 @@ public class ModificarCandi {
         Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
         System.out.println("Digite la cedula del candidato: ");
         String cedula = sc.nextLine();
+        boolean cedEncontrada = false;
+
         for(int i=0;i<fila;i++){
             if(candidato[i][0].equals(cedula)){
+                cedEncontrada = true;
                 System.out.println("Ingrese su nombre completo: ");
                 nombre = sc.nextLine();
                 candi.setNombre(nombre);
@@ -50,38 +53,37 @@ public class ModificarCandi {
                     System.out.println("Propuestas del candidato");
                     
                     for(String p : prome){
-                        System.out.println(cont + ". " + p);
+                        System.out.println(cont + ". " + p + " "+ candidato[i][1]);
                         cont++;
                         
                     }
-                    System.out.println("////////////////////");
-                    System.out.println(candidato[i][5]);
-                    System.out.println("1. Adicionar propuesta");
-                    System.out.println("2. Modificar propuesta");
+                    //System.out.println(candidato[i][5]);
+                    System.out.println("1. Modificar propuesta");
                     System.out.println("0. Salir");
                     opc = sc.nextInt();
                     sc.nextLine(); //Se agrega para consumir una nueva linea y pueda tomar la siguiente
-                    if(opc == 1){
-                        System.out.println("Ingrese la propuesta: ");
-                        propu = sc.nextLine();
-                        prome.add(propu);
-                        candi.setPromesas(prome);
-                    }
-                    if(opc ==2){
+    
+                    if(opc ==1){
                         System.out.println("Ingrese el numero de la propuesta a modificar: ");
                         int numPro = sc.nextInt();
                         sc.nextLine();
-                        System.out.println("Ingrese su propuesta nueva: ");
-                        propu = sc.nextLine();
-                        
-                        prome.set(numPro-1, propu);
-                        candi.setPromesas(prome);
-                        
+                        if(numPro >= 1 && numPro <= prome.size()){
+                            System.out.println("Ingrese su propuesta nueva: ");
+                            propu = sc.nextLine();
+                            
+                            prome.set(numPro-1, propu);
+                            candi.setPromesas(prome);
+                            
+                        }else{
+                            System.out.println("Numero de propuesta no valido");
+                        }
                     }
-                    
-                candidato[i][5] = ""+candi.getPromesas();
+                System.out.println(candidato[i][5]);
+                //candidato[i][5] = ""+candi.getPromesas();
                 }while(opc!=0);
-            }else{
+                candidato[i][5] = String.join("\n", prome);
+            }
+            if(!cedEncontrada){
                 System.out.println("Usuario no encontrado");
             }
         }

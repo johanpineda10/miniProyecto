@@ -11,7 +11,7 @@ public class Adicionar {
     private String ciudadOri;
     private int ideologia=0;
     private PartidoPoli partidos;
-    ArrayList<String> promesa;
+    ArrayList<String> promesa = new ArrayList<>();
     private String nombrePar;
     private int opc=0;
     private String propu;
@@ -58,7 +58,7 @@ public class Adicionar {
                     System.out.println("Ingrese su propuesta: ");
                     propu = sc.nextLine();
                     prome.add(propu);
-                    candi.setPromesas(prome);  
+                    candi.setPromesas(prome);
                 }
 
             }while(opc!=0);
