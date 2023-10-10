@@ -58,13 +58,13 @@ public class Adicionar {
                     System.out.println("Ingrese su propuesta: ");
                     propu = sc.nextLine();
                     prome.add(propu);
-                    candidato[fila][5] = ""+candi.getPromesas();
+                    candi.setPromesas(prome);  
                 }
 
             }while(opc!=0);
-                       
-            candi.setPromesas(prome);
-            //System.out.println(candi.getPromesas());
+            
+            candidato[fila][5] = ""+candi.getPromesas();
+            System.out.println(candi.getPromesas());
             this.candidato = candidato;
             this.promesa = prome;
     } 

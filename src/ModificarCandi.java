@@ -44,7 +44,7 @@ public class ModificarCandi {
                 ideologia = sc.nextInt();
                 candi.setIdeologia(ideologia);
                 candidato[i][4] = ""+candi.getIdeologia();
-                System.out.println(prome.get(i));
+                
                 do{
                     int cont =1;
                     System.out.println("Propuestas del candidato");
@@ -56,20 +56,31 @@ public class ModificarCandi {
                     }
                     System.out.println("////////////////////");
                     System.out.println(candidato[i][5]);
-                    System.out.println("1. Numero de propuesta a modificar");
+                    System.out.println("1. Adicionar propuesta");
+                    System.out.println("2. Modificar propuesta");
                     System.out.println("0. Salir");
                     opc = sc.nextInt();
                     sc.nextLine(); //Se agrega para consumir una nueva linea y pueda tomar la siguiente
-                    if(opc ==1){
+                    if(opc == 1){
+                        System.out.println("Ingrese la propuesta: ");
+                        propu = sc.nextLine();
+                        prome.add(propu);
+                        candi.setPromesas(prome);
+                    }
+                    if(opc ==2){
+                        System.out.println("Ingrese el numero de la propuesta a modificar: ");
+                        int numPro = sc.nextInt();
+                        sc.nextLine();
                         System.out.println("Ingrese su propuesta nueva: ");
                         propu = sc.nextLine();
                         
-                        prome.set(opc, propu);
+                        prome.set(numPro-1, propu);
                         candi.setPromesas(prome);
                         
                     }
+                    
+                candidato[i][5] = ""+candi.getPromesas();
                 }while(opc!=0);
-                //candidato[i][5] = ""+candi.getPromesas();
             }else{
                 System.out.println("Usuario no encontrado");
             }
