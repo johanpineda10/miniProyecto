@@ -62,15 +62,17 @@ public class Votos {
                 System.out.println("--------------------------------");
                 System.out.println("Sus propuestas fueron: "+ candi[ganador][5]); 
                 System.out.println("------------------------------------");
-                for(int i = 0; i<fila;i++){
-                    numCandi(fila, candi);
-                }
+                
+                numCandi(fila, candi);
+                
             }
         }while(opc != 0);
         this.candi = candi;   
     }
 
     public void numCandi(int fila, String candidato[][]){
+        int maxCandidatos = 0;
+        String partidoMax = "";
         int parU= 0;
         int parCon = 0;
         int parAlia = 0;
@@ -79,33 +81,63 @@ public class Votos {
         int parDemo = 0;
         int parPacto = 0;
         
-        for(int i =0; i<=1;i++){
-            if(candidato[i][3].equals("U")){
-                parU = parU+1;
-            }
-            if(candidato[i][3].equals("CONSERVADOR")){
-                parCon = parCon+1;
-            }
-            if(candidato[i][3].equals("ALIANZAVERDE")){
-                parAlia = parAlia+1;
-            }
-            if(candidato[i][3].equals("LIBERAL")){
-                parLiber = parLiber+1;
-            }
-            if(candidato[i][3].equals("MIRA")){
-                parMira = parMira+1;
-            }
-            if(candidato[i][3].equals("DEMOCRATICO")){
-                parDemo = parDemo+1;
-            }
-            if(candidato[i][3].equals("PACTOHISTORICO")){
-                parPacto = parPacto+1;
-            }
+        for(int i =0; i<=fila;i++){
+            String partido = candidato[i][3];
+            switch(partido){
+                case "U":
+                    parU++;
+                    break;
+                case "CONSERVADOR":
+                    parCon++;
+                    break;
+                case "ALIANZAVERDE":
+                    parAlia++;
+                    break;
+                case "LIBERAL":
+                    parLiber++;
+                    break;
+                case "MIRA":
+                    parMira++;
+                    break;
+                case "DEMOCRATICO":
+                    parDemo++;
+                    break;
+                case "PACTOHISTORICO":
+                    parPacto++;
+                    break;
 
+            }
         }
-        System.out.println(parU);
-        System.out.println(parCon);
-        System.out.println(parAlia);
+        if(parU > maxCandidatos){
+            maxCandidatos = parU;
+            partidoMax = "U";
+        }
+        if(parCon > maxCandidatos){
+            maxCandidatos = parCon;
+            partidoMax = "CONSERVADOR";
+        }
+        if(parAlia > maxCandidatos){
+            maxCandidatos = parAlia;
+            partidoMax = "ALIANZAVERDE";
+        }
+        if(parLiber > maxCandidatos){
+            maxCandidatos = parLiber;
+            partidoMax = "LIBERAL";
+        }
+        if(parMira > maxCandidatos){
+            maxCandidatos = parMira;
+            partidoMax = "MIRA";
+        }
+        if(parDemo >maxCandidatos){
+            maxCandidatos = parDemo;
+            partidoMax = "DEMOCRATICO";
+        }
+        if(parPacto > maxCandidatos){
+            maxCandidatos = parPacto;
+            partidoMax = "PACTOHISTORICO";
+        }
+        System.out.println("El partido con mas candidatos es "+partidoMax);
+        
     }
 
 }
