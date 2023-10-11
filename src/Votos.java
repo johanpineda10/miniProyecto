@@ -63,14 +63,14 @@ public class Votos {
                 System.out.println("Sus propuestas fueron: "+ candi[ganador][5]); 
                 System.out.println("------------------------------------");
                 
-                numCandi(fila, candi);
-                
+                String partidoG = numCandi(fila, candi);
+                System.out.println("El partido con mas candidatos es: "+partidoG);
             }
         }while(opc != 0);
         this.candi = candi;   
     }
 
-    public void numCandi(int fila, String candidato[][]){
+    public String numCandi(int fila, String candidato[][]){
         int maxCandidatos = 0;
         String partidoMax = "";
         int parU= 0;
@@ -81,7 +81,7 @@ public class Votos {
         int parDemo = 0;
         int parPacto = 0;
         
-        for(int i =0; i<=fila;i++){
+        for(int i =0; i<fila;i++){
             String partido = candidato[i][3];
             switch(partido){
                 case "U":
@@ -136,7 +136,7 @@ public class Votos {
             maxCandidatos = parPacto;
             partidoMax = "PACTOHISTORICO";
         }
-        System.out.println("El partido con mas candidatos es "+partidoMax);
+        return partidoMax;
         
     }
 

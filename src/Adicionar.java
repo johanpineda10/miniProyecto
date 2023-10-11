@@ -29,8 +29,18 @@ public class Adicionar {
 
             System.out.println("Ingrese su numero de cedula: ");
             cedula = sc.nextLine();
-            candi.setCedula(cedula);
-            candidato[fila][0] = candi.getCedula();
+            for(int i = 0; i<fila;i++){
+                System.out.println(candidato[i][0]);
+                System.out.println(cedula);
+                System.out.println(cedula.equals(candidato[i][0]));
+                if(candidato[i][0].equals(cedula)){
+                    System.out.println("Cedula ya registrada");
+                }else{
+                    candi.setCedula(cedula);
+                    candidato[fila][0] = candi.getCedula();
+                }
+            }
+            
 
             System.out.println("Ingrese su ciudad de origen: ");
             ciudadOri = sc.nextLine();
