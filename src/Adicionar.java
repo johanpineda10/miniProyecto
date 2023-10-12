@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Adicionar {
@@ -28,18 +27,25 @@ public class Adicionar {
             candidato[fila][1] = candi.getNombre();
 
             System.out.println("Ingrese su numero de cedula: ");
-            cedula = sc.nextLine();
-            for(int i = 0; i<fila;i++){
-                System.out.println(candidato[i][0]);
-                System.out.println(cedula);
-                System.out.println(cedula.equals(candidato[i][0]));
-                if(candidato[i][0].equals(cedula)){
-                    System.out.println("Cedula ya registrada");
-                }else{
-                    candi.setCedula(cedula);
-                    candidato[fila][0] = candi.getCedula();
+            do{
+                cedula = sc.nextLine();
+                boolean cedExistente = false;
+
+                for(int i = 0; i < fila;i++){
+                    if(candidato[i][0].equals(cedula)){
+                        cedExistente = true;
+                        System.out.println("Cedula ya registrada. Ingrese una nueva cedula");
+                        break;
+                    }
                 }
-            }
+
+                if(!cedExistente){
+                    break;
+                }
+            }while(true);
+
+            candi.setCedula(cedula);
+            candidato[fila][0] = candi.getCedula();
             
 
             System.out.println("Ingrese su ciudad de origen: ");
