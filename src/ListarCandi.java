@@ -1,4 +1,5 @@
 public class ListarCandi {
+    //Clase para listar todos los candidatos creados, recibe como parametros la matriz y la fila
     public ListarCandi(String candi[][], int fila){
         System.out.println(fila);
         if(fila>0){    

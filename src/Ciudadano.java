@@ -2,7 +2,7 @@ public class Ciudadano {
     private String nombre;
     private String cedula;
     private Ciudades ciudadOri;
-    
+    //Clase padre, la cual le hereda los metodos a su clase hija Candidato
     public Ciudadano(String nombre, String cedula, Ciudades ciudadOri) {
         this.nombre = nombre;
         this.cedula = cedula;

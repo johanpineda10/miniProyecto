@@ -5,7 +5,7 @@ public class Candidato extends Ciudadano{
     private int ideologia;
     private PartidoPoli partidos;
     private ArrayList<String> promesas;
-
+    //Clase candidato hija de Ciudadano con los metodos getter y setter y los demas metodos de la clase padre
     public Candidato(String nombre, String cedula, Ciudades ciudadOri, int ideologia, PartidoPoli partidos,
         ArrayList<String> promesas) {
         super(nombre, cedula, ciudadOri);

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Adicionar {
-
+    //Clase adicionar candidatos
     Scanner sc = new Scanner(System.in);
     private String nombre = "";
     private String cedula = "";
@@ -16,9 +16,9 @@ public class Adicionar {
     private String propu;
 
     String candidato[][];
-
+    //Recibe la matriz y el arreglo creados en la clase main y en ella guardar los datos ingresados por el usuario
     public Adicionar(String candidato[][], int fila, ArrayList<String> prome) {
-        
+        //Se crea la instancia de la clase candidato para asi llamar los metodos get y set de este
         Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
         
             System.out.println("Ingrese su nombre completo: ");
@@ -30,7 +30,7 @@ public class Adicionar {
             do{
                 cedula = sc.nextLine();
                 boolean cedExistente = false;
-
+                //for que impide que dos cedulas iguales se ingresen
                 for(int i = 0; i < fila;i++){
                     if(candidato[i][0].equals(cedula)){
                         cedExistente = true;
@@ -64,7 +64,7 @@ public class Adicionar {
             ideologia = sc.nextInt();
             candi.setIdeologia(ideologia);
             candidato[fila][4] = ""+candi.getIdeologia();
-
+            //Creacion de do while, para agregar las propuestas de los candidatos
             do{
                 System.out.println("1. Agregar propuesta");
                 System.out.println("0. Salir");
@@ -78,10 +78,10 @@ public class Adicionar {
                 }
 
             }while(opc!=0);
-            
+            //Se ingrsan los datos de las propuestas y se guardan en la matriz
             candidato[fila][5] = ""+candi.getPromesas();
             System.out.println(candi.getPromesas());
-            this.candidato = candidato;
+            this.candidato = candidato; 
             this.promesa = prome;
     } 
 }

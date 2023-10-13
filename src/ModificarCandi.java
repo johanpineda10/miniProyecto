@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
+//Clase para modificar los candidatos si asi lo desean
 public class ModificarCandi {
     Scanner sc = new Scanner(System.in);
     private String nombre = "";
@@ -16,9 +16,10 @@ public class ModificarCandi {
     private int opc=0;
     private String propu;
     ArrayList<String> promesa;
-
+    //Recibe como parametros la matriz candidatos, la fila y el arreglo de las promesas
     public ModificarCandi(String candidato[][], int fila, ArrayList<String> prome){
         Candidato candi = new Candidato(nombre, cedula, ciudad, ideologia, partidos, promesa);
+
         System.out.println("Digite la cedula del candidato: ");
         String cedula = sc.nextLine();
         boolean cedEncontrada = false;
@@ -47,7 +48,8 @@ public class ModificarCandi {
                 ideologia = sc.nextInt();
                 candi.setIdeologia(ideologia);
                 candidato[i][4] = ""+candi.getIdeologia();
-                
+                //Muestra un recorrido de las propuestas por candidato
+                //NOTA: no me aparece solo las propuestas del candidato, me aparecen las de todos los candidatos
                 do{
                     int cont =1;
                     System.out.println("Propuestas del candidato");
@@ -62,7 +64,7 @@ public class ModificarCandi {
                     System.out.println("0. Salir");
                     opc = sc.nextInt();
                     sc.nextLine(); //Se agrega para consumir una nueva linea y pueda tomar la siguiente
-    
+                    //Luego de elegir modificarla se pregunta el numero y la propuesta nueva
                     if(opc ==1){
                         System.out.println("Ingrese el numero de la propuesta a modificar: ");
                         int numPro = sc.nextInt();

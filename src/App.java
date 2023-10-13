@@ -5,12 +5,14 @@ public class App {
 
     Scanner sc = new Scanner(System.in);
     public App(){
+//Creacion de la matriz de los candidatos para enviar la informacion a las demas clases
 
         String cand[][] = new String[20][7];
         int fila = 0;
         int opc=0;
+        //Creacion de la lista de arreglos para almacenar promesas de candidatos
         ArrayList<String> prome = new ArrayList<>();
-
+        //Creacion del menu con las diferentes opciones
         do{
             System.out.println("1. Adicionar Candidato");
             System.out.println("2. Modificar candidato");
@@ -21,6 +23,7 @@ public class App {
 
             System.out.print("Ingrese la opcion: ");
             opc=sc.nextInt();
+            //Creacion del switch para ingresar a la clase que elija el usuario
             switch(opc){
                 case 1: Adicionar adi = new Adicionar(cand, fila, prome);
                         cand = adi.candidato;
